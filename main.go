@@ -1,8 +1,13 @@
 package main
-import "fmt"
+
+import (
+	"fmt"
+
+	"github.com/aadarsh10c/AdventOfCode/adventofcode2021"
+)
 
 func main() {
-	input := ReadInput("input.txt")
-	value := DayOne(input)
+	input := adventofcode2021.ReadInput("./adventofcode2021/input.txt")
+	value := adventofcode2021.DayOne(input)
 	fmt.Printf("Answer: %d", value)
 }
