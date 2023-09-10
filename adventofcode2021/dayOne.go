@@ -43,17 +43,6 @@ func DayOne(input []int) int {
 func GetSlideList(input []int) []int {
 	slideListLen := len(input) - 2
 	slideList := make([]int, slideListLen)
-
-	// for i, _ := range input {
-	// 	//end case
-	// 	if (i + 2) < len(slideList) {
-	// 		first, second, third := input[i], input[i+1], input[i+2]
-	// 		slideList[i] = first + second + third
-	// 	} else {
-	// 		break
-	// 	}
-	// }
-
 	for i, _ := range slideList {
 		first, second, third := input[i], input[i+1], input[i+2]
 		slideList[i] = first + second + third

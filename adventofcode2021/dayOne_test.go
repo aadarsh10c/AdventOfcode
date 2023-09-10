@@ -5,19 +5,7 @@ import (
 )
 
 func TestDayOne(t *testing.T) {
-	comapreSlice := func(got, want []int, t *testing.T) {
-		t.Helper()
-		gotLen, wantLen := len(got), len(want)
-		if gotLen == wantLen {
-			for i, _ := range got {
-				if got[i] != want[i] {
-					t.Fatalf("slices are unequal, got : %v ,wanted: %v", got, want)
-				}
-			}
-		} else {
-			t.Errorf("lengths are unequal, got length: %d, want length: %d", gotLen, wantLen)
-		}
-	}
+
 	t.Run("count number of increased measurements", func(t *testing.T) {
 		input := ReadInput("input.txt")
 		got := DayOne(input)
@@ -35,4 +23,18 @@ func TestDayOne(t *testing.T) {
 		comapreSlice(got, want, t)
 	})
 
+}
+
+func comapreSlice(got, want []int, t *testing.T) {
+	t.Helper()
+	gotLen, wantLen := len(got), len(want)
+	if gotLen == wantLen {
+		for i, _ := range got {
+			if got[i] != want[i] {
+				t.Fatalf("slices are unequal, got : %v ,wanted: %v", got, want)
+			}
+		}
+	} else {
+		t.Errorf("lengths are unequal, got length: %d, want length: %d", gotLen, wantLen)
+	}
 }

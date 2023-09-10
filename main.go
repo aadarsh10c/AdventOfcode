@@ -8,6 +8,7 @@ import (
 
 func main() {
 	input := adventofcode2021.ReadInput("./adventofcode2021/input.txt")
-	value := adventofcode2021.DayOne(input)
+	measurementList := adventofcode2021.GetSlideList(input)
+	value := adventofcode2021.DayOne(measurementList)
 	fmt.Printf("Answer: %d", value)
 }
