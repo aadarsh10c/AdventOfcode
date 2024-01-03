@@ -1,8 +1,8 @@
 package util
 
 import(
-	"log",
-	"os",
+	"log"
+	"os"
 	"strings"
 )
 
