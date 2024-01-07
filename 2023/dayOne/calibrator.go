@@ -17,19 +17,32 @@ func ExtractFromString(line string) ([]int, error) {
 	return digits,nil
 }
 
-func DoubleDigitExtractor(line string) ([]int, string) {
+func DoubleDigitExtractor(line string) (int, string) {
 	digits,isError := 	ExtractFromString(line)
 	if isError != nil{
-		return digits,isError.Error()
+		return 0,isError.Error()
 	}
 	dig_len := len(digits)
 	if dig_len > 2 {
-		newList := []int{digits[0], digits[dig_len-1]}
-		return newList,""
+		dblDigit  := (digits[0] * 10 ) +  digits[dig_len-1]
+		return dblDigit,""
 	}else if dig_len == 1 {
-		newList := []int{digits[0], digits[0]}
-		return newList,""
+		dblDigit := (digits[0] * 10 ) +  digits[0]
+		return dblDigit,""
 	}
+	dblDigit := (digits[0] * 10) + digits[1]
+	return dblDigit,""
+}
 
-	return digits,"	"
+func TotalCalibarationValue (calibList []string) int {
+	var sum int = 0
+	for _,line := range calibList{
+		value,err := DoubleDigitExtractor(line)
+		if err != ""{
+			return 0
+		}else{
+			sum += value
+		}
+	}
+	return sum  
 }

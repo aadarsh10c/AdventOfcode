@@ -11,7 +11,9 @@ func TestCalibrator(t *testing.T) {
 		got,_ := ExtractFromString(input)
 		want := []int{7}
 
-		compareValue(got, want, t)
+		if !reflect.DeepEqual(got,want) {
+			t.Errorf("Expected %v errror, but got %v",want,got)
+		}
 
 	})
 	t.Run("non-empty string is send,expected test to fail", func(t *testing.T) {
@@ -41,25 +43,25 @@ func TestCalibrator(t *testing.T) {
 	t.Run("expect 2 digits",func(t *testing.T) {
 		input := "1abc2"
 		got,_ := DoubleDigitExtractor(input)
-		want := []int{1,2}
+		want := 12
 		compareValue(got, want, t)
 	})
 	t.Run("expect 2 digits case 2",func(t *testing.T) {
 		input := "a1b2c3d4e5f"
 		got,_ := DoubleDigitExtractor(input)
-		want := []int{1,5}
+		want := 15
 		compareValue(got, want, t)
 	})
 	t.Run("expect 2 digits case 3",func(t *testing.T) {
 		input := "treb7uchet"
 		got,_ := DoubleDigitExtractor(input)
-		want := []int{7,7}
+		want := 77
 		compareValue(got, want, t)
 	})
 }
 
-func compareValue(got []int, want []int, t *testing.T) {
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v , wantted %v", got, want)
+func compareValue(got int, want int, t *testing.T) {
+	if got != want{
+		t.Errorf("got %d , wantted %d", got, want)
 	}
 }

@@ -3,12 +3,15 @@ package main
 import (
 	"fmt"
 
-	"github.com/aadarsh10c/AdventOfCode/adventofcode2021"
+	"github.com/aadarsh10c/AdventOfCode/2023/util"
+	"github.com/aadarsh10c/AdventOfCode/2023/dayOne"
 )
 
 func main() {
-	input := adventofcode2021.ReadInput("./adventofcode2021/input.txt")
-	measurementList := adventofcode2021.GetSlideList(input)
-	value := adventofcode2021.DayOne(measurementList)
-	fmt.Printf("Answer: %d", value)
+	//read input rom the text file
+	faultyCalibrations := util.ReadInput("./2023/input/dayOneInput.txt")
+	// fmt.Printf("%v",faultyCalibrations)
+	//calculate the sum of all calibration values
+	calibrationValue := dayOne.TotalCalibarationValue(faultyCalibrations)
+	fmt.Printf("Final value : %d",calibrationValue)
 }
